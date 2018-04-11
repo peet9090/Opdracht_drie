@@ -30,23 +30,24 @@ btn.addEventListener("click", function(){
 });
 
 function ophalenHTML(data){
-//html toevoegen aan de html
+//Deze functie wordt uitgevoerd wanneer er op var btn wordt geklikt.
   var htmlStuk = "";
 
   for (i = 1; i < data.length; i++) {
-    htmlStuk += "<span>" + data[i].release_date+ ".</span>";
-    htmlStuk += "<h3>" + data[i].title + ".</h3>";
-    htmlStuk += "<img src='" + data[i].cover + "'>" + ".</img>";
+    htmlStuk += "<div class='img" + [i] + "'><span>" + data[i].release_date+ "</span>";
+    htmlStuk += "<h3>" + data[i].title + "</h3>";
+    htmlStuk += "<img src='" + data[i].cover + "'>" + "</img></div>";
+
 //    console.log("test1");
+// de api content wordt geselecteerd
   }
   filmsLijst.insertAdjacentHTML('beforeend', htmlStuk);
 }
+// insert de api in html
+//laat doormiddel van for loop alle content in
 
 
-
-
-
-
+/*
 var scrollen = document.getElementById('films');
 //console.log("portfolio " + portfolio)
 
@@ -56,13 +57,61 @@ window.addEventListener("scroll", function(){
 
 	if(window.scrollY > scrollen.offsetTop - 100){
     //console.log("test");
+    //scroll funtion start wanneer je begint te scrollen
     scrollen.classList.add('action');
-
-
-
+    // doormiddel van deze action add die de class ection
   };
 
 })
+
+*/
+
+//console.log("portfolio " + portfolio)
+
+window.addEventListener("scroll", function(){
+  //console.log("window: " + window.scrollY);
+  //console.log("portfolio: " + portfolio.offsetTop);
+
+
+  if(window.scrollY > document.querySelector('.img1').offsetTop - 100){
+    document.querySelector('.img1').classList.add('action');
+  };
+
+  if(window.scrollY > document.querySelector('.img2').offsetTop - 100){
+    document.querySelector('.img2').classList.add('action');
+  };
+
+  if(window.scrollY > document.querySelector('.img3').offsetTop - 100){
+    document.querySelector('.img3').classList.add('action');
+  };
+
+  if(window.scrollY > document.querySelector('.img4').offsetTop - 100){
+    document.querySelector('.img4').classList.add('action');
+  };
+
+  if(window.scrollY > document.querySelector('.img5').offsetTop - 100){
+    document.querySelector('.img5').classList.add('action');
+  };
+
+})
+
+
+/*
+var count = 1;
+
+window.addEventListener("scroll", function(){
+  //console.log("window: " + window.scrollY);
+  //console.log("portfolio: " + portfolio.offsetTop);
+
+for ( i = 1; i > 0; i++ ) {
+  if(window.scrollY > document.querySelector('.img' + count++ +'').offsetTop - 100){
+    document.querySelector('.img' + count++ + '').classList.add('action');
+  }
+}
+
+})
+
+*/
 
 
 
